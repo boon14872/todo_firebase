@@ -5,12 +5,14 @@ class AppButton extends StatelessWidget {
   final void Function()? onPressed;
   final String text;
   final bool? disabled;
+  final Color? color;
 
   const AppButton({
     super.key,
     this.onPressed,
     required this.text,
     this.disabled = false,
+    this.color,
   });
 
   @override
@@ -18,7 +20,7 @@ class AppButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: disabled! ? null : onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue.shade400,
+        backgroundColor: color ?? Theme.of(context).primaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
       ),

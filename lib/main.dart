@@ -1,9 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_firebase/views/register_view.dart';
+import 'package:get/get.dart';
+import 'package:todo_firebase/controllers/auth_controller.dart';
+import 'package:todo_firebase/firebase_options.dart';
+import 'package:todo_firebase/views/home_view.dart';
+import 'package:todo_firebase/views/login_view.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const App());
 }
 
@@ -12,9 +17,21 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final AuthController authController = Get.put(
+      AuthController(),
+      permanent: true,
+    );
+    return GetMaterialApp(
       title: 'Todo App',
-      home: const RegisterView(),
+      home: StreamBuilder(
+        stream: authController.user.stream,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return HomeView();
+          }
+          return const LoginView();
+        },
+      ),
     );
   }
 }
