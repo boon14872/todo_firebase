@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_firebase/views/register_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,8 +14,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Todo App',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const Scaffold(),
+      home: const RegisterView(),
     );
   }
 }
