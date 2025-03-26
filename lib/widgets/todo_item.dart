@@ -13,7 +13,7 @@ class TodoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: AppText(todo.title),
-      subtitle: Text(todo.description),
+      subtitle: AppText(todo.description),
       trailing: IconButton(
         icon: const Icon(Icons.delete),
         onPressed: () {

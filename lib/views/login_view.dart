@@ -78,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('เข้าสู่ระบบสำเร็จ')));
+        ).showSnackBar(const SnackBar(content: AppText('เข้าสู่ระบบสำเร็จ')));
       }
     }
     _isSubmitting = false;

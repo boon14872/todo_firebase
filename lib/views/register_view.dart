@@ -148,7 +148,7 @@ class _RegisterViewState extends State<RegisterView> {
         }
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('สมัครสมาชิกสำเร็จ')));
+        ).showSnackBar(const SnackBar(content: AppText('สมัครสมาชิกสำเร็จ')));
       }
     }
     _isSubmitting = false;
